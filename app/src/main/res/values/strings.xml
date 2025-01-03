@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Newsify</string>
+
+    <!-- on boarding title -->
+    <string name="title1">Stay Updated in Real-Time</string>
+    <string name="title2">Personalized News Just for You</string>
+    <string name="title3">Read, Save, and Share</string>
+
+    <!-- on boarding body -->
+    <string name="body1">Get the latest news as it happens.\nStay informed with breaking news and top stories \ndelivered directly to your device</string>
+    <string name="body2">Customize your news feed based on your interests.\nFrom politics to sports, entertainment, and tech, \nwe bring you the stories that matter most to you</string>
+    <string name="body3">Save articles to read later, share stories with friends, \nand never miss out on what matters. \nWe make it easy for you to stay connected with the world</string>
+
+    <!-- bottom navigation items -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="bookmark">Bookmark</string>
+
+    <!-- error message -->
+    <string name="socket_timeout_exception">Server Unavailable</string>
+    <string name="connect_exception">Internet Unavailable</string>
+    <string name="unknown_error">Unknown Error</string>
+
+    <string name="empty_news">Empty News</string>
+
+    <!-- details view model -->
+    <string name="article_saved">Article Saved</string>
+    <string name="article_deleted">Article Deleted</string>
+    <string name="article">article</string>
+</resources>
