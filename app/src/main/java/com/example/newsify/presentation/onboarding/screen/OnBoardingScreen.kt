@@ -1,4 +1,4 @@
-package com.example.newsify.presentation.onboarding
+package com.example.newsify.presentation.onboarding.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -85,7 +85,7 @@ fun OnBoardingScreen (
                     )
                 }
             }
+            Spacer(modifier = Modifier.weight(0.5f))
         }
-        Spacer(modifier = Modifier.weight(0.5f))
     }
 }

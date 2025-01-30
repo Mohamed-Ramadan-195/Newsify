@@ -1,6 +1,5 @@
 package com.example.newsify.presentation.onboarding.model
 
-import androidx.compose.ui.res.stringResource
 import com.example.newsify.R
 
 val pages = listOf (

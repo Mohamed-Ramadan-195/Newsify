@@ -45,10 +45,10 @@ fun NewsifyList (
     if (handlePagingResult) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(30.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
             contentPadding = PaddingValues(all = 6.dp)
         ) {
-            items(count = articles.itemCount) {
+            items(count = articles.itemCount) { it ->
                 articles[it]?.let {
                     NewsifyCard(
                         article = it,

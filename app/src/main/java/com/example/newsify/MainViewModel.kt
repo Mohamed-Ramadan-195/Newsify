@@ -15,9 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val appEntryUseCases: AppEntryUseCases
+    appEntryUseCases: AppEntryUseCases
 ) : ViewModel() {
-
     var splashCondition by mutableStateOf(true)
         private set
 
@@ -35,5 +34,4 @@ class MainViewModel @Inject constructor(
             splashCondition = false
         }.launchIn(viewModelScope)
     }
-
 }

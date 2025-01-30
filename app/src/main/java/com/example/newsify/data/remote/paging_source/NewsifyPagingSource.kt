@@ -1,16 +1,14 @@
-package com.example.newsify.data.remote
+package com.example.newsify.data.remote.paging_source
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.newsify.data.remote.calling.NewsifyApi
 import com.example.newsify.domain.model.Article
 
-class SearchNewsifyPagingSource (
+class NewsifyPagingSource (
     private val newsifyApi: NewsifyApi,
-    private val sources: String,
-    private val searchQuery: String
+    private val sources: String
 ) : PagingSource<Int, Article>() {
-
-    private var totalNewsCount = 0
 
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
@@ -19,11 +17,12 @@ class SearchNewsifyPagingSource (
         }
     }
 
+    private var totalNewsCount = 0
+
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val page = params.key ?: 1
         return try {
-            val newsResponse = newsifyApi.searchNews (
-                searchQuery = searchQuery,
+            val newsResponse = newsifyApi.getNews (
                 sources = sources,
                 page = page
             )
@@ -41,4 +40,5 @@ class SearchNewsifyPagingSource (
             )
         }
     }
+
 }

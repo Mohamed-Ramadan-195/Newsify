@@ -1,8 +1,9 @@
-package com.example.newsify.presentation.onboarding
+package com.example.newsify.presentation.onboarding.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsify.domain.usecase.app_entry.AppEntryUseCases
+import com.example.newsify.presentation.onboarding.screen.OnBoardingEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -11,7 +12,6 @@ import javax.inject.Inject
 class OnBoardingViewModel @Inject constructor (
     private val appEntryUseCases: AppEntryUseCases
 ) : ViewModel() {
-
     fun onEvent (
         onBoardingEvent: OnBoardingEvent
     ) {
@@ -25,5 +25,4 @@ class OnBoardingViewModel @Inject constructor (
             appEntryUseCases.saveAppEntryUseCase()
         }
     }
-
 }

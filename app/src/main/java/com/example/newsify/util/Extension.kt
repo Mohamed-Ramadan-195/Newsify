@@ -1,6 +1,5 @@
 package com.example.newsify.util
 
-import android.content.Context
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -15,11 +14,7 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
 import com.example.newsify.R
-import com.example.newsify.util.Constant.USER_SETTINGS
 
 fun Modifier.searchBarBorder() = composed {
     if (!isSystemInDarkTheme()) {

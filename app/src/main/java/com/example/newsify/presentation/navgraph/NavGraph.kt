@@ -6,8 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
-import com.example.newsify.presentation.onboarding.OnBoardingScreen
-import com.example.newsify.presentation.onboarding.OnBoardingViewModel
+import com.example.newsify.presentation.onboarding.screen.OnBoardingScreen
+import com.example.newsify.presentation.onboarding.viewmodel.OnBoardingViewModel
 
 @Composable
 fun NavGraph(
@@ -30,7 +30,7 @@ fun NavGraph(
             }
         }
 
-        navigation(
+        navigation (
             route = Route.NewsifyNavigation.route,
             startDestination = Route.NewsifyNavigatorScreen.route
         ) {

@@ -6,6 +6,6 @@ sealed class DetailsEvent {
 
     data class InsertDeleteArticle(val article: Article): DetailsEvent()
 
-    object RemoveSideEffect: DetailsEvent()
+    data object RemoveSideEffect: DetailsEvent()
 
 }

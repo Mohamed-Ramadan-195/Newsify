@@ -12,7 +12,7 @@ import com.example.newsify.util.Constant.USER_SETTINGS
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class LocalUserManagerImpl(
+class LocalUserManagerImpl (
     private val context: Context
 ) : LocalUserManager {
     override suspend fun saveAppEntry() {
@@ -28,7 +28,6 @@ class LocalUserManagerImpl(
     }
 }
 
-// extension function
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = USER_SETTINGS)
 
 private object PreferencesKeys {

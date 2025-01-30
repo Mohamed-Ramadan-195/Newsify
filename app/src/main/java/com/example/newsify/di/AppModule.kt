@@ -6,7 +6,7 @@ import com.example.newsify.data.local.NewsifyDao
 import com.example.newsify.data.local.NewsifyDatabase
 import com.example.newsify.data.local.NewsifyTypeConverter
 import com.example.newsify.data.manager.LocalUserManagerImpl
-import com.example.newsify.data.remote.NewsifyApi
+import com.example.newsify.data.remote.calling.NewsifyApi
 import com.example.newsify.data.repository.NewsifyRepositoryImpl
 import com.example.newsify.domain.manager.LocalUserManager
 import com.example.newsify.domain.repository.NewsifyRepository

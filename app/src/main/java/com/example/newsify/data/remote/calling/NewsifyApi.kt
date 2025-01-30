@@ -1,4 +1,4 @@
-package com.example.newsify.data.remote
+package com.example.newsify.data.remote.calling
 
 import com.example.newsify.data.remote.dto.NewsifyResponse
 import com.example.newsify.util.Constant.API_KEY

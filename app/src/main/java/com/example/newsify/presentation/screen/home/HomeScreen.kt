@@ -81,7 +81,7 @@ fun HomeScreen(
             color = colorResource(id = R.color.secondary_text)
         )
         Spacer (modifier = Modifier.height(24.dp))
-        NewsifyList(
+        NewsifyList (
             modifier = Modifier.padding(horizontal = 24.dp),
             articles = articles,
             onClick = { navigateToDetails(it) }

@@ -37,8 +37,7 @@ fun NewsifyCard (
     onClick: () -> Unit
 ) {
     val context = LocalContext.current
-
-    Row(modifier = Modifier.clickable { onClick() }) {
+    Row (modifier = Modifier.clickable { onClick() }) {
         AsyncImage (
             modifier = modifier
                 .size(96.dp)
@@ -49,7 +48,7 @@ fun NewsifyCard (
         )
         Column (
             modifier = Modifier
-                .padding(horizontal = 3.dp)
+                .padding(horizontal = 6.dp)
                 .height(96.dp),
             verticalArrangement = Arrangement.SpaceAround
         ) {
@@ -92,8 +91,8 @@ fun NewsifyCardPreview() {
             content = "",
             description = "",
             publishedAt = "",
-            source = Source(id = "", name = ""),
-            title = "",
+            source = Source(id = "", name = "Al Jazeera English"),
+            title = "Winter storm hammers eastern Us; over 60 million face blizzard conditions",
             url = "",
             urlToImage = ""
         )
