@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import com.example.newsify.presentation.navgraph.NavGraph
+import com.example.newsify.presentation.navigation.navgraph.NavGraph
 import com.example.newsify.ui.theme.NewsifyTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsifyTheme {
                 val isSystemInDarkMode = isSystemInDarkTheme()
+                @Suppress("DEPRECATION")
                 val systemController = rememberSystemUiController()
                 SideEffect {
                     systemController.setSystemBarsColor (

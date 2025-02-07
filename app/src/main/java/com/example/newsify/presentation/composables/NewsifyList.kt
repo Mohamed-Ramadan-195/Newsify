@@ -43,7 +43,7 @@ fun NewsifyList (
 ) {
     val handlePagingResult = handlePagingResult(articles = articles)
     if (handlePagingResult) {
-        LazyColumn(
+        LazyColumn (
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             contentPadding = PaddingValues(all = 6.dp)

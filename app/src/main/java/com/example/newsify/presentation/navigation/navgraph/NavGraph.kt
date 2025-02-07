@@ -1,4 +1,4 @@
-package com.example.newsify.presentation.navgraph
+package com.example.newsify.presentation.navigation.navgraph
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel

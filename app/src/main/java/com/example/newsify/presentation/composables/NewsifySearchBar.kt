@@ -41,7 +41,7 @@ fun NewsifySearchBar (
         if (isClicked) { onClick?.invoke() }
     }
     Box(modifier = Modifier) {
-        TextField(
+        TextField (
             modifier = modifier
                 .fillMaxWidth()
                 .searchBarBorder(),

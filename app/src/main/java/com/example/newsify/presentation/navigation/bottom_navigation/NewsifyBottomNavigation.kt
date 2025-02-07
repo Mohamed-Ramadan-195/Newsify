@@ -1,4 +1,4 @@
-package com.example.newsify.presentation.navgraph.bottom_navigation
+package com.example.newsify.presentation.navigation.bottom_navigation
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Column

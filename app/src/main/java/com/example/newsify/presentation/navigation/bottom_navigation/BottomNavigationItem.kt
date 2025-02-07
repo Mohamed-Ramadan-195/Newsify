@@ -1,4 +1,4 @@
-package com.example.newsify.presentation.navgraph.bottom_navigation
+package com.example.newsify.presentation.navigation.bottom_navigation
 
 import androidx.annotation.DrawableRes
 

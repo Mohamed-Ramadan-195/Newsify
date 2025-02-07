@@ -1,4 +1,4 @@
-package com.example.newsify.presentation.navgraph
+package com.example.newsify.presentation.navigation.navgraph
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,8 +20,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
-import com.example.newsify.presentation.navgraph.bottom_navigation.BottomNavigationItem
-import com.example.newsify.presentation.navgraph.bottom_navigation.NewsifyBottomNavigation
+import com.example.newsify.presentation.navigation.bottom_navigation.BottomNavigationItem
+import com.example.newsify.presentation.navigation.bottom_navigation.NewsifyBottomNavigation
 import com.example.newsify.presentation.screen.bookmark.BookmarkScreen
 import com.example.newsify.presentation.screen.bookmark.BookmarkViewModel
 import com.example.newsify.presentation.screen.details.DetailsEvent

@@ -47,7 +47,7 @@ fun NewsifyCardShimmerEffect(
             Row (
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Box(
+                Box (
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(15.dp)

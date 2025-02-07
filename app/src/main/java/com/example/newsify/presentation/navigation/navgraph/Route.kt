@@ -1,4 +1,4 @@
-package com.example.newsify.presentation.navgraph
+package com.example.newsify.presentation.navigation.navgraph
 
 import com.example.newsify.util.Constant.APP_START_NAVIGATION
 import com.example.newsify.util.Constant.HOME_SCREEN
