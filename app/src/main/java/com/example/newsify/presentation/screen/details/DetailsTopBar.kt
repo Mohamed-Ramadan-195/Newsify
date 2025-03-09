@@ -45,7 +45,7 @@ fun DetailsTopBar (
                 onClick = onBookmarkClick
             ) {
                 Icon (
-                    painter = painterResource(id = R.drawable.ic_bookmark),
+                    painter = painterResource(id = R.drawable.icon_bookmark),
                     contentDescription = null
                 )
             }
@@ -61,7 +61,7 @@ fun DetailsTopBar (
                 onClick = onBrowsingClick
             ) {
                 Icon (
-                    painter = painterResource(id = R.drawable.ic_network),
+                    painter = painterResource(id = R.drawable.icon_network),
                     contentDescription = null
                 )
             }

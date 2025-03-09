@@ -38,14 +38,17 @@ fun NewsifyNavigation() {
         listOf(
             BottomNavigationItem (
                 icon = R.drawable.icon_home,
+                iconFocused = R.drawable.icon_home,
                 text = "Home"
             ),
             BottomNavigationItem (
                 icon = R.drawable.icon_search,
+                iconFocused = R.drawable.icon_search_focused,
                 text = "Search"
             ),
             BottomNavigationItem (
                 icon = R.drawable.icon_bookmark,
+                iconFocused = R.drawable.icon_bookmark_focused,
                 text = "Bookmark"
             )
         )
@@ -176,9 +179,7 @@ fun navigateToTap (
 ) {
     navController.navigate(route) {
         navController.graph.startDestinationRoute?.let { homeScreen ->
-            popUpTo(homeScreen) {
-                saveState = true
-            }
+            popUpTo(homeScreen) { saveState = true }
             restoreState = true
             launchSingleTop = true
         }

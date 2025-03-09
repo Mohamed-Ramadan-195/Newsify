@@ -1,6 +1,5 @@
 package com.example.newsify.presentation.composables
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -61,7 +60,6 @@ fun NewsifyCardShimmerEffect(
 
 @Composable
 @Preview(showBackground = true)
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 fun NewsifyCardShimmerEffectPreview() {
     NewsifyCardShimmerEffect()
 }

@@ -72,14 +72,17 @@ fun NewsifyBottomNavigationPreview() {
             items = listOf (
                 BottomNavigationItem (
                     icon = R.drawable.icon_home,
+                    iconFocused = R.drawable.icon_home,
                     text = stringResource(R.string.home)
                 ),
                 BottomNavigationItem (
                     icon = R.drawable.icon_search,
+                    iconFocused = R.drawable.icon_search_focused,
                     text = stringResource(R.string.search)
                 ),
                 BottomNavigationItem (
-                    icon = R.drawable.icon_bookmark,
+                    icon = R.drawable.icon_bookmark_focused,
+                    iconFocused = R.drawable.icon_bookmark_focused,
                     text = stringResource(R.string.bookmark)
                 )
             ),
