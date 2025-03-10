@@ -1,8 +1,7 @@
 package com.example.newsify.presentation.navigation.navgraph
 
-import android.widget.Toast
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,28 +9,21 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
 import com.example.newsify.presentation.navigation.bottom_navigation.BottomNavigationItem
 import com.example.newsify.presentation.navigation.bottom_navigation.NewsifyBottomNavigation
 import com.example.newsify.presentation.screen.bookmark.BookmarkScreen
-import com.example.newsify.presentation.screen.bookmark.BookmarkViewModel
-import com.example.newsify.presentation.screen.details.DetailsEvent
 import com.example.newsify.presentation.screen.details.DetailsScreen
-import com.example.newsify.presentation.screen.details.DetailsViewModel
 import com.example.newsify.presentation.screen.home.HomeScreen
-import com.example.newsify.presentation.screen.home.HomeViewModel
 import com.example.newsify.presentation.screen.search.SearchScreen
-import com.example.newsify.presentation.screen.search.SearchViewModel
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun NewsifyNavigation() {
     val bottomNavigationItemData = remember {
@@ -102,17 +94,13 @@ fun NewsifyNavigation() {
             }
         }
     ) {
-        val bottomPadding = it.calculateBottomPadding()
         NavHost (
             navController = navController,
             startDestination = Route.HomeScreen.route,
-            modifier = Modifier.padding(bottom = bottomPadding)
+            modifier = Modifier
         ) {
             composable(route = Route.HomeScreen.route) {
-                val viewModel: HomeViewModel = hiltViewModel()
-                val articles = viewModel.news.collectAsLazyPagingItems()
                 HomeScreen (
-                    articles = articles,
                     navigateToSearch = {
                         navigateToTap (
                             navController = navController,
@@ -128,11 +116,7 @@ fun NewsifyNavigation() {
                 )
             }
             composable(route = Route.SearchScreen.route) {
-                val viewModel: SearchViewModel = hiltViewModel()
-                val state = viewModel.state.value
                 SearchScreen (
-                    searchState = state,
-                    searchEvent = viewModel::onEvent,
                     navigateToDetails = { article ->
                         navigateToDetails (
                             navController = navController,
@@ -142,25 +126,16 @@ fun NewsifyNavigation() {
                 )
             }
             composable(route = Route.DetailsScreen.route) {
-                val viewModel: DetailsViewModel = hiltViewModel()
-                if (viewModel.sideEffect != null) {
-                    Toast.makeText(LocalContext.current, viewModel.sideEffect, Toast.LENGTH_SHORT).show()
-                    viewModel.onEvent(DetailsEvent.RemoveSideEffect)
-                }
                 navController.previousBackStackEntry?.savedStateHandle?.get<Article?>("article")
                     ?.let { article ->
                         DetailsScreen (
                             article = article,
-                            detailsEvent = viewModel::onEvent,
                             navigateUp = { navController.navigateUp() }
                         )
                     }
             }
             composable(route = Route.BookmarkScreen.route) {
-                val viewModel: BookmarkViewModel = hiltViewModel()
-                val state = viewModel.state.value
                 BookmarkScreen (
-                    bookmarkState = state,
                     navigateToDetails = { article ->
                         navigateToDetails (
                             navController = navController,

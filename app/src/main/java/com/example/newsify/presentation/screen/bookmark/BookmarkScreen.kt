@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,12 +15,26 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
 import com.example.newsify.presentation.composables.NewsifyList
 
 @Composable
-fun BookmarkScreen (
+fun BookmarkScreen(
+    navigateToDetails: (Article) -> Unit
+) {
+    val bookmarkViewModel: BookmarkViewModel = hiltViewModel()
+    val bookmarkState = bookmarkViewModel.state.value
+
+    BookmarkScreenContent(
+        bookmarkState = bookmarkState,
+        navigateToDetails = navigateToDetails
+    )
+}
+
+@Composable
+fun BookmarkScreenContent (
     bookmarkState: BookmarkState,
     navigateToDetails: (Article) -> Unit
 ) {
@@ -26,11 +42,9 @@ fun BookmarkScreen (
         modifier = Modifier
             .fillMaxWidth()
             .statusBarsPadding()
-            .padding (
-                top = 24.dp,
-                start = 24.dp,
-                end = 24.dp,
-            )
+            .navigationBarsPadding()
+            .safeContentPadding()
+            .padding (16.dp)
     ) {
         Text (
             text = "Bookmark",

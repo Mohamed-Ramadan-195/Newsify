@@ -1,11 +1,12 @@
 package com.example.newsify.presentation.navigation.bottom_navigation
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -13,15 +14,19 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsify.R
 import com.example.newsify.ui.theme.NewsifyTheme
+import com.example.newsify.ui.theme.PrimaryColor
+import com.example.newsify.ui.theme.SecondaryColor
 
 @Composable
 fun NewsifyBottomNavigation (
@@ -30,33 +35,40 @@ fun NewsifyBottomNavigation (
     onItemClick: (Int) -> Unit
 ) {
     NavigationBar (
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.background,
-        tonalElevation = 10.dp
+        modifier = Modifier
+            .fillMaxWidth()
+            .windowInsetsPadding(WindowInsets.navigationBars)
+            .border(1.dp, SecondaryColor),
+        containerColor = MaterialTheme.colorScheme.background
     ) {
         items.forEachIndexed { index, item ->
             NavigationBarItem (
                 selected = index == selected,
                 onClick = { onItemClick(index) },
                 icon = {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon (
-                            painter = painterResource(id = item.icon),
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.height(6.dp))
-                        Text (
-                            text = item.text,
-                            fontSize = 10.sp
-                        )
-                    }
+                    Icon(
+                        painter = painterResource(
+                            if (index == selected) item.iconFocused
+                            else item.icon
+                        ),
+                        contentDescription = "icon",
+                        modifier = Modifier.size(20.dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = item.text,
+                        fontSize = 10.sp,
+                        fontFamily = FontFamily.Serif,
+                        fontWeight = FontWeight.Bold
+                    )
                 },
                 colors = NavigationBarItemDefaults.colors (
-                    selectedIconColor = MaterialTheme.colorScheme.primary,
-                    selectedTextColor = MaterialTheme.colorScheme.primary,
-                    unselectedIconColor = MaterialTheme.colorScheme.onSurface,
-                    unselectedTextColor = MaterialTheme.colorScheme.onSurface
+                    selectedIconColor = PrimaryColor,
+                    selectedTextColor = PrimaryColor,
+                    unselectedIconColor = SecondaryColor,
+                    unselectedTextColor = SecondaryColor,
+                    indicatorColor = Color.Transparent
                 )
             )
         }
