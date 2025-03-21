@@ -13,9 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsify.R
+import com.example.newsify.presentation.Dimen.LargeSpace
+import com.example.newsify.presentation.Dimen.UnderMediumSpace
 
 @Composable
 fun NewsifyButton (
@@ -25,8 +26,8 @@ fun NewsifyButton (
     Button (
         modifier = Modifier.fillMaxWidth(),
         onClick = onClick,
-        shape = RoundedCornerShape(size = 24.dp),
-        contentPadding = PaddingValues(all = 12.dp),
+        shape = RoundedCornerShape(size = LargeSpace),
+        contentPadding = PaddingValues(all = UnderMediumSpace),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = Color.White
@@ -48,7 +49,7 @@ fun NewsifyTextButton (
     TextButton(
         modifier = Modifier.fillMaxWidth(),
         onClick = onClick,
-        contentPadding = PaddingValues(all = 10.dp)
+        contentPadding = PaddingValues(all = UnderMediumSpace)
     ) {
         Text (
             text = text,

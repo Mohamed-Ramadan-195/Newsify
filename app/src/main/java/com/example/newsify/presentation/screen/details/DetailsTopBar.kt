@@ -1,5 +1,6 @@
 package com.example.newsify.presentation.screen.details
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
@@ -11,9 +12,9 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import com.example.newsify.R
+import com.example.newsify.ui.theme.SecondaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,13 +23,15 @@ fun DetailsTopBar (
     onShareClick: () -> Unit,
     onBookmarkClick: () -> Unit,
     onBackClick: () -> Unit,
+    @DrawableRes iconBookmark: Int = R.drawable.icon_bookmark,
 ) {
     TopAppBar (
         title = { },
         modifier = Modifier.fillMaxWidth(),
         colors = TopAppBarDefaults.mediumTopAppBarColors (
             containerColor = Color.Transparent,
-            actionIconContentColor = colorResource(R.color.secondary_text)
+            actionIconContentColor = SecondaryColor,
+            navigationIconContentColor = SecondaryColor
         ),
         navigationIcon = {
             IconButton (
@@ -45,7 +48,7 @@ fun DetailsTopBar (
                 onClick = onBookmarkClick
             ) {
                 Icon (
-                    painter = painterResource(id = R.drawable.icon_bookmark),
+                    painter = painterResource(iconBookmark),
                     contentDescription = null
                 )
             }

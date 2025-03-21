@@ -29,6 +29,8 @@ import coil.request.ImageRequest
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
 import com.example.newsify.domain.model.Source
+import com.example.newsify.presentation.Dimen.SmallSpace
+import com.example.newsify.presentation.Dimen.UnderMediumSpace
 
 @Composable
 fun NewsifyCard (
@@ -48,7 +50,7 @@ fun NewsifyCard (
         )
         Column (
             modifier = Modifier
-                .padding(horizontal = 6.dp)
+                .padding(horizontal = SmallSpace)
                 .height(96.dp),
             verticalArrangement = Arrangement.SpaceAround
         ) {
@@ -69,9 +71,9 @@ fun NewsifyCard (
                 Icon (
                     painter = painterResource(R.drawable.icon_time),
                     contentDescription = null,
-                    modifier = Modifier.size(10.dp)
+                    modifier = Modifier.size(UnderMediumSpace)
                 )
-                Spacer(modifier = Modifier.width(6.dp))
+                Spacer(modifier = Modifier.width(SmallSpace))
                 Text (
                     text = article.publishedAt,
                     fontSize = 12.sp,

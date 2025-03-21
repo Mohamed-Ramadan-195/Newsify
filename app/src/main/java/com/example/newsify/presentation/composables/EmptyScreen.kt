@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
 import com.example.newsify.R
+import com.example.newsify.presentation.Dimen
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
@@ -90,7 +91,7 @@ fun EmptyContent(
         Text (
             text = message,
             modifier = Modifier
-                .padding(10.dp)
+                .padding(Dimen.UnderMediumSpace)
                 .alpha(alphaAnimation),
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,

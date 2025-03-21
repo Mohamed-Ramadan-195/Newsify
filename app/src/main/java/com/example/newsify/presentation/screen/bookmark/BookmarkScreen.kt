@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
+import com.example.newsify.presentation.Dimen.LargeSpace
 import com.example.newsify.presentation.composables.NewsifyList
 
 @Composable
@@ -52,7 +53,7 @@ fun BookmarkScreenContent (
             fontWeight = FontWeight.Bold,
             color = colorResource(id = R.color.primary_text)
         )
-        Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(LargeSpace))
         NewsifyList (
             articles = bookmarkState.articles,
             onClick = { navigateToDetails(it) }

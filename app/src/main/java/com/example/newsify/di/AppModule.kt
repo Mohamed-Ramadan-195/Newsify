@@ -33,13 +33,14 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
+    // App Entry
     @Provides
     @Singleton
     fun provideLocalUserManager (
         application: Application
     ): LocalUserManager = LocalUserManagerImpl(application)
 
+    // App Entry Use Cases
     @Provides
     @Singleton
     fun provideAppEntryUseCases (
@@ -49,6 +50,7 @@ object AppModule {
         readAppEntryUseCase = ReadAppEntryUseCase(localUserManager = localUserManager)
     )
 
+    // Newsify Use Cases
     @Provides
     @Singleton
     fun provideNewsifyUseCases (
@@ -64,6 +66,7 @@ object AppModule {
         )
     }
 
+    // Newsify Api Calling
     @Provides
     @Singleton
     fun provideNewsifyApi(): NewsifyApi {
@@ -73,6 +76,7 @@ object AppModule {
             .build().create(NewsifyApi::class.java)
     }
 
+    // Newsify Repository for Local and Remote Data
     @Provides
     @Singleton
     fun provideNewsifyRepository(
@@ -83,6 +87,7 @@ object AppModule {
         newsifyDao = newsifyDao
     )
 
+    // Newsify Database for Local Data
     @Provides
     @Singleton
     fun provideNewsifyDatabase(
@@ -97,8 +102,10 @@ object AppModule {
             .build()
     }
 
+    // Newsify Dao for Local Data
     @Provides
     @Singleton
-    fun provideNewsifyDao (newsifyDatabase: NewsifyDatabase) = newsifyDatabase.newsifyDao
-
+    fun provideNewsifyDao (
+        newsifyDatabase: NewsifyDatabase
+    ) = newsifyDatabase.newsifyDao
 }

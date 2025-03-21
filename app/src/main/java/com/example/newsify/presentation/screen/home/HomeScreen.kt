@@ -19,13 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
+import com.example.newsify.presentation.Dimen.LargeSpace
+import com.example.newsify.presentation.Dimen.MediumSpace
 import com.example.newsify.presentation.composables.NewsifyList
 import com.example.newsify.presentation.composables.NewsifySearchBar
 import com.example.newsify.util.Constant.EMPTY_STRING
@@ -66,7 +67,7 @@ fun HomeScreenContent(
     Column (
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(MediumSpace)
             .statusBarsPadding()
             .navigationBarsPadding()
             .safeContentPadding(),
@@ -77,18 +78,16 @@ fun HomeScreenContent(
             fontWeight = FontWeight.Bold,
             color = colorResource(R.color.primary_text)
         )
-        Spacer(modifier = Modifier.padding(24.dp))
+        Spacer(modifier = Modifier.padding(LargeSpace))
         NewsifySearchBar (
-            modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             text = EMPTY_STRING,
             readOnly = true,
             onValueChange = {},
             onClick = { navigateToSearch() },
             onSearch = {}
         )
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(LargeSpace))
         Text (
             text = titles,
             modifier = Modifier
@@ -97,9 +96,9 @@ fun HomeScreenContent(
             fontSize = 12.sp,
             color = colorResource(id = R.color.secondary_text)
         )
-        Spacer (modifier = Modifier.height(24.dp))
+        Spacer (modifier = Modifier.height(LargeSpace))
         NewsifyList (
-            modifier = Modifier.padding(horizontal = 24.dp),
+            modifier = Modifier.padding(horizontal = LargeSpace),
             articles = articles,
             onClick = { navigateToDetails(it) }
         )

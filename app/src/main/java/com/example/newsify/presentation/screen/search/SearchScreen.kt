@@ -8,10 +8,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsify.domain.model.Article
+import com.example.newsify.presentation.Dimen.LargeSpace
+import com.example.newsify.presentation.Dimen.MediumSpace
 import com.example.newsify.presentation.composables.NewsifyList
 import com.example.newsify.presentation.composables.NewsifySearchBar
 
@@ -41,7 +42,7 @@ fun SearchScreenContent (
             .statusBarsPadding()
             .navigationBarsPadding()
             .statusBarsPadding()
-            .padding(16.dp)
+            .padding(MediumSpace)
     ) {
         NewsifySearchBar (
             text = searchState.searchQuery,
@@ -49,7 +50,7 @@ fun SearchScreenContent (
             onValueChange = { searchEvent(SearchEvent.UpdateSearchQuery(it)) },
             onSearch = { searchEvent(SearchEvent.SearchNews) }
         )
-        Spacer(modifier = Modifier.padding(24.dp))
+        Spacer(modifier = Modifier.padding(LargeSpace))
         searchState.articles?.let {
             val articles = it.collectAsLazyPagingItems()
             NewsifyList (

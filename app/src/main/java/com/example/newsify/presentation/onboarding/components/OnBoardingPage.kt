@@ -20,6 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsify.R
+import com.example.newsify.presentation.Dimen.LargeSpace
+import com.example.newsify.presentation.Dimen.UnderMediumSpace
 import com.example.newsify.presentation.onboarding.model.Page
 import com.example.newsify.presentation.onboarding.model.pages
 
@@ -43,22 +45,22 @@ fun OnBoardingPage (
         Spacer(modifier = Modifier.height(24.dp))
         Text (
             text = page.title,
-            modifier = Modifier.padding(horizontal = 10.dp),
+            modifier = Modifier.padding(horizontal = UnderMediumSpace),
             fontSize = 24.sp,
             fontWeight = FontWeight.SemiBold,
             textAlign = TextAlign.Center,
             color = colorResource(R.color.primary_text)
         )
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(UnderMediumSpace))
         Text (
             text = page.body,
-            modifier = Modifier.padding(horizontal = 10.dp),
+            modifier = Modifier.padding(horizontal = UnderMediumSpace),
             fontSize = 18.sp,
             fontWeight = FontWeight.Normal,
             textAlign = TextAlign.Center,
             color = colorResource(R.color.secondary_text)
         )
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(LargeSpace))
     }
 }
 

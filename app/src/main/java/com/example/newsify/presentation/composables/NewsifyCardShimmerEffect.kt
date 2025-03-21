@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.newsify.presentation.Dimen.ExtraSmallSpace
+import com.example.newsify.presentation.Dimen.LargeSpace
 import com.example.newsify.util.shimmerEffect
 
 @Composable
@@ -33,14 +35,14 @@ fun NewsifyCardShimmerEffect(
         Column (
             verticalArrangement = Arrangement.SpaceAround,
             modifier = Modifier
-                .padding(horizontal = 3.dp)
+                .padding(horizontal = ExtraSmallSpace)
                 .height(96.dp)
         ) {
             Box (
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(30.dp)
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = LargeSpace)
                     .shimmerEffect()
             )
             Row (
@@ -50,7 +52,7 @@ fun NewsifyCardShimmerEffect(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(15.dp)
-                        .padding(horizontal = 24.dp)
+                        .padding(horizontal = LargeSpace)
                         .shimmerEffect()
                 )
             }

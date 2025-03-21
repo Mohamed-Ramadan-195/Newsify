@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.example.newsify.domain.model.Article
+import com.example.newsify.presentation.Dimen.LargeSpace
 
 @Composable
 fun NewsifyList(
@@ -95,10 +96,10 @@ fun handlePagingResult (
 
 @Composable
 fun ShimmerEffect() {
-    Column(verticalArrangement = Arrangement.spacedBy(24.dp)) {
+    Column(verticalArrangement = Arrangement.spacedBy(LargeSpace)) {
         repeat(10) {
             NewsifyCardShimmerEffect(
-                modifier = Modifier.padding(horizontal = 24.dp)
+                modifier = Modifier.padding(horizontal = LargeSpace)
             )
         }
     }

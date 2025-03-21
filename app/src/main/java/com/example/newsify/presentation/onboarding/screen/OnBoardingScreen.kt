@@ -16,6 +16,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.newsify.presentation.Dimen.ExtraLargeSpace
 import com.example.newsify.presentation.composables.NewsifyButton
 import com.example.newsify.presentation.onboarding.components.OnBoardingPage
 import com.example.newsify.presentation.onboarding.components.PageIndicator
@@ -54,7 +55,7 @@ fun OnBoardingScreen (
         Column (
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 30.dp)
+                .padding(horizontal = ExtraLargeSpace)
                 .navigationBarsPadding(),
             verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally

@@ -28,6 +28,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.newsify.R
 import com.example.newsify.domain.model.Article
+import com.example.newsify.presentation.Dimen.LargeSpace
 
 @Composable
 fun DetailsScreen(
@@ -39,11 +40,13 @@ fun DetailsScreen(
         Toast.makeText(LocalContext.current, detailsViewModel.sideEffect, Toast.LENGTH_SHORT).show()
         detailsViewModel.onEvent(DetailsEvent.RemoveSideEffect)
     }
+    val bookmarkedArticles = detailsViewModel.bookmarkedArticles
 
     DetailsScreenContent(
         article = article,
         detailsEvent = detailsViewModel::onEvent,
-        navigateUp = navigateUp
+        navigateUp = navigateUp,
+        bookmarkedArticles = bookmarkedArticles
     )
 }
 
@@ -52,11 +55,10 @@ fun DetailsScreen(
 fun DetailsScreenContent(
     article: Article,
     detailsEvent: (DetailsEvent) -> Unit,
-    navigateUp: () -> Unit
+    navigateUp: () -> Unit,
+    bookmarkedArticles: Set<String>
 ) {
-
-    val context = LocalContext.current
-
+    val isBookmarked = article.url in bookmarkedArticles
     Column (
         modifier = Modifier
             .fillMaxSize()
@@ -64,6 +66,7 @@ fun DetailsScreenContent(
             .navigationBarsPadding()
             .safeContentPadding()
     ) {
+        val context = LocalContext.current
         DetailsTopBar (
             onBrowsingClick = {
                 Intent (Intent.ACTION_VIEW).also {
@@ -83,11 +86,12 @@ fun DetailsScreenContent(
                 }
             },
             onBookmarkClick = { detailsEvent(DetailsEvent.InsertDeleteArticle(article)) },
-            onBackClick = navigateUp
+            onBackClick = navigateUp,
+            iconBookmark = if (isBookmarked) R.drawable.icon_bookmark_focused else R.drawable.icon_bookmark
         )
         LazyColumn (
             modifier = Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(24.dp)
+            contentPadding = PaddingValues(LargeSpace)
         ) {
             item {
                 AsyncImage (
@@ -99,7 +103,7 @@ fun DetailsScreenContent(
                         .clip(MaterialTheme.shapes.medium),
                     contentScale = ContentScale.Crop
                 )
-                Spacer (modifier = Modifier.height(24.dp))
+                Spacer (modifier = Modifier.height(LargeSpace))
                 Text (
                     text = article.title,
                     style = MaterialTheme.typography.displaySmall,

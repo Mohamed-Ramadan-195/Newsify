@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import com.example.newsify.presentation.Dimen.UnderMediumSpace
 import com.example.newsify.ui.theme.Gray
 
 @Composable
@@ -29,7 +29,7 @@ fun PageIndicator(
         repeat (times = pageCount) { page ->
             Box (
                 modifier = Modifier
-                    .size(10.dp)
+                    .size(UnderMediumSpace)
                     .clip(CircleShape)
                     .background (
                         if (page == selectedPage) selectedColor
